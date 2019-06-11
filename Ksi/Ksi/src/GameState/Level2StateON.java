@@ -40,7 +40,7 @@ public class Level2StateON extends GameState {
 		player = new Player(tileMap);
 		player2 = new Player2(tileMap);
 		player2.setPosition(gsm.getStartX(), gsm.getStartY());
-		player.setPosition(60, 180);
+		player.setPosition(40, 300);
 	}
 
 	public void update() {
@@ -56,7 +56,7 @@ public class Level2StateON extends GameState {
 		}
 		if(player.getLavaCollision())
 		{
-			player.setPosition(60, 180);
+			player.setPosition(40, 300);
 		}
 		player.update();
 	}
@@ -74,6 +74,11 @@ public class Level2StateON extends GameState {
 		if(k==KeyEvent.VK_LEFT) player.setLeft(true);
 		if(k==KeyEvent.VK_RIGHT) player.setRight(true);
 		if(k==KeyEvent.VK_UP) player.setJumping(true);
+		if(k==KeyEvent.VK_B)
+		{
+			gsm.setPreviousState(GameStateManager.LEVEL2STATEON);
+			gsm.setState(GameStateManager.BOSS);
+		}
 	}
 	
 	public void keyReleased(int k) {

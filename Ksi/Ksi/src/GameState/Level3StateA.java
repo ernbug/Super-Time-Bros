@@ -36,7 +36,7 @@ public class Level3StateA extends GameState {
 			bg = new Background ("/Backgrounds/newBGdark.jpg");
 	
 		player = new Player(tileMap);
-		player.setPosition (60,180);
+		player.setPosition (40,300);
 	}
 
 	public void update() {
@@ -65,6 +65,11 @@ public class Level3StateA extends GameState {
 		if(k==KeyEvent.VK_LEFT) player.setLeft(true);
 		if(k==KeyEvent.VK_RIGHT) player.setRight(true);
 		if(k==KeyEvent.VK_UP) player.setJumping(true);
+		if(k==KeyEvent.VK_B)
+		{
+			gsm.setPreviousState(GameStateManager.LEVEL3STATEA);
+			gsm.setState(GameStateManager.BOSS);
+		}
 	}
 	
 	public void keyReleased(int k) {

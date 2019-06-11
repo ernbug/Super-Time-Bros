@@ -43,7 +43,7 @@ public class Level4StateC extends GameState {
 		player3 = new Player2(tileMap);
 		player2.setPosition (gsm.getStartX(),gsm.getStartY());
 		player3.setPosition(gsm.getStartX2(), gsm.getStartY2());
-		player.setPosition(60, 180);
+		player.setPosition(40, 300);
 	}
 
 	public void update() {
@@ -78,6 +78,11 @@ public class Level4StateC extends GameState {
 		if(k==KeyEvent.VK_LEFT) player.setLeft(true);
 		if(k==KeyEvent.VK_RIGHT) player.setRight(true);
 		if(k==KeyEvent.VK_UP) player.setJumping(true);
+		if(k==KeyEvent.VK_B)
+		{
+			gsm.setPreviousState(GameStateManager.LEVEL4STATEC);
+			gsm.setState(GameStateManager.BOSS);
+		}
 	}
 	
 	public void keyReleased(int k) {

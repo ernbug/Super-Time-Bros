@@ -15,19 +15,13 @@ public class MenuState extends GameState{
 	private String[] options3 = {"Empezar", "Dejar"};
 	private String[] options4 = {"Начать", "Закончить"};
 	
-	private Color titleColor;
-	private Font titleFont;
-	
 	private Font font;
 	
 	public MenuState (GameStateManager gsm) {
 		this.gsm = gsm;
 		
 		try {
-			bg = new Background("/Backgrounds/bg2.png");
-			
-			titleColor = Color.WHITE;
-			titleFont = new Font ("Arial Black", Font.ITALIC, 40);
+			bg = new Background("/Backgrounds/bgMain.jpg");
 			
 			font = new Font("Arial Black", Font.PLAIN, 20);
 		}
@@ -43,16 +37,12 @@ public class MenuState extends GameState{
 		//tlo
 		bg.draw(g);
 		
-		//tytul
-		g.setColor(titleColor);
-		g.setFont(titleFont);
-		g.drawString("Super TIME Bros.", 50, 120);
 		
 		//menu
 		g.setFont(font);
 		for(int i=0; i < 2; i++) {
 			if (i == currentChoice) {
-				g.setColor(Color.RED);
+				g.setColor(Color.WHITE);
 			}
 			else {
 				g.setColor(Color.BLACK);

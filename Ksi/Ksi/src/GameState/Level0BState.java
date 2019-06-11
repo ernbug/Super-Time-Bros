@@ -75,6 +75,11 @@ public class Level0BState extends GameState {
 		if(k==KeyEvent.VK_LEFT) player.setLeft(true);
 		if(k==KeyEvent.VK_RIGHT) player.setRight(true);
 		if(k==KeyEvent.VK_UP) player.setJumping(true);
+		if(k==KeyEvent.VK_B)
+		{
+			gsm.setPreviousState(GameStateManager.LEVEL0BSTATE);
+			gsm.setState(GameStateManager.BOSS);
+		}
 	}
 	
 	public void keyReleased(int k) {

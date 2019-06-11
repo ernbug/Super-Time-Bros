@@ -13,6 +13,7 @@ public class GameStateManager {
 	
 	private ArrayList<GameState> gameStates;
 	private int currentState;
+	private int previousState;
 	
 	public static final int BEGINSTATE = 0;
 	public static final int LANGCHOICE = 1;
@@ -30,6 +31,7 @@ public class GameStateManager {
 	public static final int LEVEL4STATEB = 13;
 	public static final int LEVEL4STATEC = 14;
 	public static final int ENDSTATE = 15;
+	public static final int BOSS = 16;
 	public GameStateManager() {
 		gameStates = new ArrayList<GameState>();
 		
@@ -50,12 +52,23 @@ public class GameStateManager {
 		gameStates.add(new Level4StateB(this));
 		gameStates.add(new Level4StateC(this));
 		gameStates.add(new EndState(this));
+		gameStates.add(new Boss(this));
 		
 	}
 	
 	public void setState(int state) {
 		currentState = state;
 		gameStates.get(currentState).init();
+	}
+	
+	public void setPreviousState(int state)
+	{
+		previousState = state;
+	}
+	
+	public int getPreviousState()
+	{
+		return previousState;
 	}
 
 	public void update() {

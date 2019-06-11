@@ -11,20 +11,14 @@ public class LangChoice extends GameState {
 	private int currentChoice = 0;
 	private String[] options = { "Polski", "English", "Español", "Pусский", "Quit" };
 
-	private Color titleColor;
-	private Font titleFont;
-
 	private Font font;
 
 	public LangChoice(GameStateManager gsm) {
 		this.gsm = gsm;
 
 		try {
-			bg = new Background("/Backgrounds/bg1.png");
-
-			titleColor = Color.WHITE;
-			titleFont = new Font("Arial Black", Font.ITALIC, 40);
-
+			bg = new Background("/Backgrounds/bgLang.jpg");
+			
 			font = new Font("Arial Black", Font.PLAIN, 20);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -41,16 +35,11 @@ public class LangChoice extends GameState {
 		// tlo
 		bg.draw(g);
 
-		// tytul
-		g.setColor(titleColor);
-		g.setFont(titleFont);
-		g.drawString("Super TIME Bros.", 50, 120);
-
 		// menu
 		g.setFont(font);
 		for (int i = 0; i < options.length; i++) {
 			if (i == currentChoice) {
-				g.setColor(Color.RED);
+				g.setColor(Color.WHITE);
 			} else {
 				g.setColor(Color.BLACK);
 			}
